@@ -46,3 +46,33 @@ describe("Append to the end of the linked list", () => {
     expect(list.head.next.next).toBeNull();
   });
 });
+
+describe("Delete the middle node of the linked list", () => {
+  it("can delete the middle node of the linked list", () => {
+    let list = new LinkedList();
+    list.append("test");
+    list.append("test2");
+    list.append("test3");
+    list.append("test4");
+    list.append("test5");
+    list.deleteMiddle();
+    expect(list.head.value).toEqual("test");
+    expect(list.head.next.value).toEqual("test2");
+    expect(list.head.next.next.value).toEqual("test4");
+    expect(list.head.next.next.next.value).toEqual("test5");
+    expect(list.head.next.next.next.next).toBeNull();
+  });
+
+  it("can delete the middle node of the linked list", () => {
+    let list = new LinkedList();
+    list.append("test");
+    list.append("test2");
+    list.append("test3");
+    list.append("test4");
+    list.deleteMiddle();
+    expect(list.head.value).toEqual("test");
+    expect(list.head.next.value).toEqual("test2");
+    expect(list.head.next.next.value).toEqual("test4");
+    expect(list.head.next.next.next).toBeNull();
+  });
+});

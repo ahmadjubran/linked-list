@@ -29,6 +29,26 @@ class LinkedList {
       current.next = node;
     }
   }
+
+  deleteMiddle() {
+    if (!this.head) {
+      return null;
+    } else {
+      let current = this.head;
+      let count = 0;
+      while (current) {
+        current = current.next;
+        count++;
+      }
+      let middle = Math.floor(count / 2);
+      current = this.head;
+      for (let i = 0; i < middle; i++) {
+        current = current.next;
+      }
+      current.value = current.next.value;
+      current.next = current.next.next;
+    }
+  }
 }
 
 module.exports = LinkedList;
