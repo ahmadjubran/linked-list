@@ -49,6 +49,21 @@ class LinkedList {
       current.next = current.next.next;
     }
   }
+
+  // Insert into a specific location into the LL
+  insertAt(location, value) {
+    let node = new Node(value);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      let current = this.head;
+      for (let i = 0; i < location - 1; i++) {
+        current = current.next;
+      }
+      node.next = current.next;
+      current.next = node;
+    }
+  }
 }
 
 module.exports = LinkedList;
