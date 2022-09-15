@@ -76,3 +76,18 @@ describe("Delete the middle node of the linked list", () => {
     expect(list.head.next.next.next).toBeNull();
   });
 });
+
+describe("Insert into a specific location into the linked list", () => {
+  it("can insert a new node into a specific location into the linked list", () => {
+    let list = new LinkedList();
+    list.insert("test");
+    list.insert("test2");
+    list.insert("test3");
+    list.insertAt(1, "test4");
+    expect(list.head.value).toEqual("test3");
+    expect(list.head.next.value).toEqual("test4");
+    expect(list.head.next.next.value).toEqual("test2");
+    expect(list.head.next.next.next.value).toEqual("test");
+    expect(list.head.next.next.next.next).toBeNull();
+  });
+});
